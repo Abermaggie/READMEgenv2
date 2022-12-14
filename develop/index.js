@@ -66,3 +66,9 @@ inquirer
     }
 
   ])
+  .then((answers) => {
+    let readMeContent = generateREADME(answers);
+    fs.writeFile('README.md', readMeContent, (err) =>
+      err ? console.log(err) : console.log('Successfully created README.md!')
+    );
+  });
